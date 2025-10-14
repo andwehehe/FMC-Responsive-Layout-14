@@ -1,0 +1,64 @@
+@media (min-width: 100rem) {
+  .main__container {
+    max-width: 47rem;
+  }
+
+  .heading {
+    margin-bottom: clamp(2rem, 2vw, 4rem);
+  }
+
+  .title {
+    font-size: clamp(2rem, 2vw, 4rem);
+  }
+
+  .theme__label {
+    font-size: clamp(0.8rem, 0.8vw, 1.6rem);
+  }
+
+  .theme__number {
+    font-size: clamp(1rem, 0.8vw, 2rem);
+    letter-spacing: clamp(0.8rem, 0.8vw, 1.5rem);
+  }
+
+  .toggle__container {
+    width: clamp(4.5rem, 5vw, 7rem);
+    height: clamp(1.8rem, 1.7vw, 5rem);
+    padding: clamp(0.3rem, 0.3vw, 1rem);
+  }
+
+  .toggle__ball {
+    height: 1.7rem;
+  }
+
+  .keys__container {
+    gap: clamp(0.8rem, 1vw, 2rem);
+    padding: clamp(1.5rem, 2vw, 3.8rem);
+  }
+
+  .keys {
+    padding-block-start: clamp(1.3rem, 1vw, 2rem);
+    padding-block-end: clamp(0.8rem, 0.5vw, 1.5rem);
+    
+    padding-inline: clamp(1rem, 0.1vw, 1.5rem);
+    border-bottom: solid clamp(0.25rem, 0.3vw, 1rem) var(--Gray-orange-400);
+    border-radius: clamp(0.5rem, 1vw, 1rem);
+  }
+
+  .reset {  
+    border-bottom: solid var(--Navy-800) clamp(0.25rem, 0.3vw, 1rem);
+  }
+
+  .equal {
+    border-bottom: solid var(--Red-800) clamp(0.25rem, 0.3vw, 1rem);
+  }
+
+  .del {
+    border-bottom: solid var(--Navy-800) clamp(0.25rem, 0.3vw, 1rem);
+  }
+
+  .screen {
+    padding-block: clamp(1.8rem, 2vw, 4rem);
+    padding-inline: clamp(1.5rem, 2vw, 3.8rem);
+    margin-bottom: clamp(1.5rem, 1.5vw, 6rem);
+  }
+}

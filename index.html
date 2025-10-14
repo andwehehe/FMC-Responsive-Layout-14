@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/favicon-32x32.png" sizes="favicon-32x32" type="images/png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="breakpoints.css">
+  <link rel="stylesheet" href="other-themes.css">
+  <title>Frontend Mentor | Calculator App</title>
+</head>
+<body>
+
+  <div class="main__container">
+    <header class="heading">
+      <h1 class="title">calc</h1>
+
+      <div class="theme__sub-container">
+          <p class="theme__number">123</p>
+        <div class="theme__section">
+          <p class="theme__label">THEME</p>
+          <div class="toggle__container">
+            <label class="theme__button"><input type="radio" name="theme" class="theme-1" checked></label>
+            <label class="theme__button"><input type="radio" name="theme" class="theme-2"></label>
+            <label class="theme__button"><input type="radio" name="theme" class="theme-3"></label>
+            <span class="toggle__ball"></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="calculator">
+      <input type="text" name="screen" id="screen" class="screen" readonly>
+      <section class="keys__container">
+        <button class="keys" data-value="7">7</button>
+        <button class="keys" data-value="8">8</button>
+        <button class="keys" data-value="9">9</button>
+        <button class="keys del" data-action="delete">DEL</button>
+        <button class="keys" data-value="4">4</button>
+        <button class="keys" data-value="5">5</button>
+        <button class="keys" data-value="6">6</button>
+        <button class="keys" data-value="+">+</button>
+        <button class="keys" data-value="1">1</button>
+        <button class="keys" data-value="2">2</button>
+        <button class="keys" data-value="3">3</button>
+        <button class="keys" data-value="-">-</button>
+        <button class="keys" data-value=".">.</button>
+        <button class="keys" data-value="0">0</button>
+        <button class="keys" data-value="/">/</button>
+        <button class="keys" data-value="*">x</button>
+        <button class="keys reset" data-action="reset">RESET</button>
+        <button class="keys equal" data-action="equals">=</button>
+      </section>
+    </main>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

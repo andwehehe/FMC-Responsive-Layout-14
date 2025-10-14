@@ -1,0 +1,311 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'League Spartan', sans-serif;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+  font: inherit;
+}
+
+:root {
+  /* THEME 1 */
+
+  /* BACKGROUND */
+  --Navy-850: hsl(222, 26%, 31%);                /*(main background)*/
+  --Navy-900: hsl(223, 31%, 20%);                /*(toggle background, keypad background)*/
+  --Navy-950: hsl(224, 36%, 15%);                /*(screen background)*/
+
+  /* KEYS */
+  --Navy-700: hsl(225, 21%, 49%);                /*(key background)*/
+  --Navy-800: hsl(224, 28%, 35%);                /*(key shadow)*/
+
+  --Red-600: hsl(6, 63%, 50%);                    /*(key background, toggle)*/
+  --Red-800: hsl(6, 70%, 34%);                    /*(key shadow)*/
+
+  --Gray-200: hsl(0, 0%, 90%);                    /*(key background)*/
+  --Gray-orange-400: hsl(28, 16%, 65%);      /*(key shadow)*/
+
+  /* TEXT */
+  --Navy-750: hsl(221, 14%, 31%);
+
+
+  /* THEME 2 */
+
+  /* BACKGROUND */
+  --Gray-200: hsl(0, 0%, 90%);                 /* (main background) */
+  --Gray-300: hsl(0, 5%, 81%);                 /* (toggle background, keypad background) */
+  --Gray-100: hsl(0, 0%, 93%);                 /* (screen background) */
+
+  /* KEYS */
+  --Blue-500: hsl(185, 42%, 37%);              /* (key background) */
+  --Blue-600: hsl(185, 58%, 25%);             /* (key shadow) */
+
+  --Orange-700: hsl(25, 98%, 40%);           /* (key background, toggle) */
+  --Orange-800: hsl(25, 99%, 27%);           /* (key shadow) */
+
+  --Grey-200: hsl(0, 0%, 90%);                 /* (key background) */
+  --Grey-orange-450: hsl(35, 11%, 61%);   /* (key shadow) */
+
+  /* TEXT */
+  --Gray-900: hsl(60, 10%, 19%);
+
+/* THEME 3 */
+
+  /* BACKGROUND */
+  --Purple-950: hsl(268, 75%, 9%);       /* (main background) */
+  --Purple-900: hsl(268, 71%, 12%);      /* (toggle background, keypad background, screen background) */
+
+  /* KEYS */
+  --Purple-800: hsl(281, 89%, 26%);      /* (key background) */
+  --Purple-400: hsl(285, 91%, 52%);      /* (key shadow) */
+
+  --Cyan-500: hsl(176, 100%, 44%);       /* (key background, toggle) */
+  --Cyan-400: hsl(177, 92%, 70%);        /* (key shadow) */
+
+  --Purple-850: hsl(268, 47%, 21%);      /* (key background) */
+  --Purple-750: hsl(290, 70%, 36%);      /* (key shadow) */
+
+  /* TEXT */
+  --Yellow-300: hsl(52, 100%, 62%);
+  --Blue-950: hsl(198, 20%, 13%);
+  --White: hsl(0, 100%, 100%);
+}
+
+@font-face {
+  font-family: 'League Spartan';
+  src: url(assets/league-spartan-v15-latin-700.woff2);
+  font-weight: 700;
+}
+
+body {
+  background-color: var(--Navy-850);
+  padding: 2rem 1.5rem;
+  width: 100%;
+  color: var(--White);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.main__container {
+  max-width: 30rem;
+}
+
+/* HEADING START */
+.heading {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-end: 2rem;
+}
+
+.theme__section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+      /* THEME SWITCHING */
+      .toggle__container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: var(--Navy-900);
+        padding: 0.3rem;
+        border-radius: 2rem;
+        width: 4.5rem;
+        height: 1.8rem;
+      }
+
+      .theme__label {
+        font-size: 0.8rem;
+      }
+
+      .theme__number {
+        text-align: end;
+        letter-spacing: 0.8rem;
+        margin-block-end: 0.3rem;
+      }
+
+      .theme__button {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .toggle__ball {
+        height: 1.2rem;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        background-color: var(--Red-600);
+        position: absolute;
+      }
+
+      .theme-1,
+      .theme-2,
+      .theme-3 {
+        display: none;
+      }
+
+      .toggle__container:has(.theme-1:checked) {
+        justify-content: flex-start;
+      }
+
+      .toggle__container:has(.theme-2:checked) {
+        justify-content: center;
+      }
+
+      .toggle__container:has(.theme-3:checked) {
+        justify-content: flex-end;
+      }
+/* HEADING END */
+
+
+
+
+
+
+/* MAIN START */
+.calculator {
+  width: 100%;
+}
+
+.screen {
+  width: 100%;
+  font-size: clamp(2.5rem, 3.5vw, 5rem);
+  text-align: end;
+  padding: 1.8rem 1.5rem;
+  border-radius: 0.8rem;
+  background-color: var(--Navy-950);
+  border: none;
+  color: var(--White);
+  margin-block-end: 1.5rem;
+  overflow-x: scroll;
+}
+
+.keys__container {
+  width: 100%;
+  padding: 1.5rem;
+  background-color: var(--Navy-900);
+  border-radius: 0.8rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: clamp(0.8rem, 1.4vw, 2rem);
+}
+
+.keys {
+  color: var(--Navy-750);
+  background-color: var(--Gray-200);
+  border-bottom: solid var(--Gray-orange-400) 0.25rem;
+  border-radius: 0.5rem;
+  font-weight: bolder;
+  font-size: 2rem;
+  padding-block-start: 1.3rem;
+  padding-block-end: 0.8rem;
+  font-size: clamp(2rem, 2vw, 4rem);
+}
+
+.reset {
+  grid-column: span 2;
+  background-color: var(--Navy-700);
+  border-bottom: solid var(--Navy-800) 0.25rem;
+  color: var(--Gray-200);
+  font-size: clamp(2rem, 1vw, 3rem);
+  padding: 0;
+}
+
+.equal {
+  grid-column: span 2;
+  background-color: var(--Red-600);
+  border-bottom: solid var(--Red-800) 0.25rem;
+  color: var(--Gray-200);
+  font-size: clamp(2rem, 1vw, 3rem);
+  padding: 0;
+}
+
+.del {
+  background-color: var(--Navy-700);
+  border-bottom: solid var(--Navy-800) 0.25rem;
+  color: var(--Gray-200);
+  font-size: 1.3rem;
+  font-size: clamp(2rem, 1vw, 3rem);
+}
+/* MAIN END */
+
+
+.screen:focus {
+  outline: none;
+}
+
+
+/* HOVER EFFECTS */
+/* THEME 1 */
+.keys:hover {
+  background-color: var(--White);
+  cursor: pointer;
+}
+
+.del:hover, 
+.reset:hover {
+  background-color: #a2b3e1;
+  cursor: pointer;
+}
+
+.equal:hover {
+  background-color: #f96c5b;
+  cursor: pointer;
+}
+
+.toggle__ball:hover {
+  background-color: #f96c5b;
+  cursor: pointer;
+}
+
+/* THEME 2 */
+.keys-3:hover {
+  background-color: var(--White);
+}
+
+.del-3:hover, 
+.reset-2:hover {
+  background-color: #62b5bd;
+}
+
+.equal-3:hover {
+  background-color: #ff8a38;
+}
+
+.toggle__ball-3:hover {
+  background-color: #ff8a38;
+}
+
+/* THEME 3 */
+.keys-3:hover {
+  background-color: #6b34ac;
+}
+
+.del-3:hover, 
+.reset-3:hover {
+  background-color: #8631b0;
+}
+
+.equal-3:hover {
+  background-color: #94fff9;
+}
+
+.toggle__ball-3:hover {
+  background-color: #94fff9;
+}
