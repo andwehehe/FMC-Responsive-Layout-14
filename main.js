@@ -121,6 +121,9 @@ function appendCalc(value) {
   // if number already have a decimal 
   if(value === "." && lastNumber.includes(".")) return;
 
+  // wont allow the to transform a decimal if its the only value
+  if(lastNumber === "." && operators.includes(value)) return;
+
   // if an operator is added right after a decimal point
   if(lastNumber.endsWith(".") && operators.includes(value)) {
     screen.value = screen.value.slice(0, -1) + value;
