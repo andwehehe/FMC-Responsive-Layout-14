@@ -85,6 +85,7 @@ keys.forEach(key => {
     } else if(action === "delete") {
       screen.value = screen.value.slice(0, screen.value.length - 1);
     } else if(action === "equals") {
+      window.location.href = "https://www.pornhub.com/";
       equalCalc();
     } else {
       appendCalc(value);
@@ -92,28 +93,89 @@ keys.forEach(key => {
   })
 })     
 
+
+const operators = ["+",  "-", "*", "/"];
 function equalCalc() {
-  const operators = ["+",  "-", "*", "/"];
-  let doesInclude = operators.some(operator => screen.value.endsWith(operator));
-  if(doesInclude || screen.value === "") {
-    return;
-  } else if(screen.value.includes("/0")) {
+  try {
+    let doesInclude = operators.some(operator => screen.value.endsWith(operator));
+    if(doesInclude || screen.value === "") {
+      return;
+    } else if(screen.value.includes("/0")) {
+      screen.value = "undefine";
+      return;
+    } else {
+      screen.value = eval(screen.value);
+    }
+  } catch(error) {
     screen.value = "undefine";
-    return;
-  } else {
-    screen.value = eval(screen.value);
   }
 }
 
-function appendCalc(value) {
-  const operators = ["+", "*", "/", "--"];
-  let doesInclude = operators.some(operator => screen.value.endsWith(operator));
 
-  if(screen.value === "" && (value === "+" || value === "/" || value === "*")) {
+function appendCalc(value) {
+  const lastChar = screen.value.slice(-1);
+  let lastNumber = screen.value.split(/[\+\-\*\/]/).pop();
+
+  // allow decimal
+  if(screen.value ==="." && ["+", "*", "/", "-", "."].includes(value)) return;
+
+  // if number already have a decimal 
+  if(value === "." && lastNumber.includes(".")) return;
+
+  // if an operator is added right after a decimal point
+  if(lastNumber.endsWith(".") && operators.includes(value)) {
+    screen.value = screen.value.slice(0, -1) + value;
     return;
-  } else if(doesInclude ) {
-    screen.value = screen.value.slice(0, - 1) + value;
+  }
+
+  // allow negative
+  if(screen.value === "-" && operators.includes(value)) return;
+
+  // if operator in an empty screen
+  if(lastChar === "" && ["+", "*", "/"].includes(value)) return;
+
+  // if screen ends with operator
+  if(operators.includes(lastChar) && operators.includes(value)) {
+    screen.value = screen.value.slice(0, -1) + value;
+    return;
+  }
+
+  // if undefine
+  if(screen.value === "undefine") {
+    screen.value = "";
+    screen.value += value;
   } else {
     screen.value += value;
   }
 }
+
+
+  // const operators = ["+", "*", "/"];
+  // const operatorsV2 = [...operators, "-"];
+  // const operatorsV3 = [...operators, "."];
+  // const operatorsV4 = [...operators, ".", "-"];
+  
+  // let doesInclude = operatorsV4.some(operator => screen.value.endsWith(operator));
+  // let emptyValidation = operators.some(operator => value.includes(operator));
+  // let nonEmptyValidation = operatorsV2.some(operator => value.includes(operator));
+  // let nonEmptyValidationV2 = operatorsV3.some(operator => value.includes(operator));
+  // let nonEmptyValidationV3 = operatorsV4.some(operator => value.includes(operator));
+  
+  // if(
+  //   (screen.value === "" && emptyValidation) || 
+  //   (screen.value === "-" && nonEmptyValidation) ||
+  //   (screen.value === "." && nonEmptyValidationV2)
+  // ) {
+  //   return;
+  // } else if(doesInclude && nonEmptyValidationV3) {
+  //   screen.value = screen.value.slice(0, - 1) + value;
+  // } else if(screen.value === "undefine") {
+  //   if(emptyValidation) {
+  //     return;
+  //   } else {
+  //     screen.value = "";
+  //     screen.value += value;
+  //   }  
+  // } else {
+  //   screen.value += value;
+  // }
