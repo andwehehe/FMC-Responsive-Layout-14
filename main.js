@@ -99,11 +99,11 @@ function equalCalc() {
     let doesInclude = operators.some(operator => screen.value.endsWith(operator));
     if(doesInclude || screen.value === "") {
       return;
-    } else if(screen.value.includes("/0")) {
-      screen.value = "undefine";
-      return;
     } else {
       screen.value = eval(screen.value);
+      if(!isFinite(screen.value)) {
+        screen.value = "undefine";
+      }
     }
   } catch(error) {
     screen.value = "undefine";
