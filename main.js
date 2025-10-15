@@ -85,7 +85,6 @@ keys.forEach(key => {
     } else if(action === "delete") {
       screen.value = screen.value.slice(0, screen.value.length - 1);
     } else if(action === "equals") {
-      window.location.href = "https://www.pornhub.com/";
       equalCalc();
     } else {
       appendCalc(value);
